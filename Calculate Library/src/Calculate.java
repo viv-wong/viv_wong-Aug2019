@@ -49,13 +49,13 @@ public class Calculate {
 		return answer + "/" +denominator;
 	}
 	//converts an improper fraction into a mixed number
-	public static String toMixedNum(int a, int b) { 
-		;
+	public static String toMixedNum(int numerator, int denominator) { 
+		int ;
 		return answer;
 	}
 	//converts a binomial multiplication form into a quadratic equation form
 	public static String foil(int a, int b, int c, int d, String n) {
-		String answer= "(a*c)n +";
+		int = ;
 		return answer;
 	}
 //Part Two
