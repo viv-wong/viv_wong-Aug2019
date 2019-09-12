@@ -9,8 +9,7 @@
 //returns the square of the value passed
 public class Calculate { 
 	public static int square(int number) {
-		int answer=0;
-		answer=number*number;  
+		int answer=number*number;  
 		return answer;	
 	}
 	//returns the cube of the value passed
@@ -40,30 +39,36 @@ public class Calculate {
 	}
 	//returns the value of the discriminant
 	public static double discriminant(double a, double b, double c) {
-		double answer=b*b-(4*a*c);
-		return answer;
+		double answer1=(b*b);
+		double answer2=(4*a*c);
+		return answer1-answer2;
 	}
 	//converts mixed number into an improper fraction
 	public static String toImproperFrac(int whole, int numerator, int denominator){
-		int answer= (whole*denominator)+numerator;
-		return answer + "/" +denominator;
+		int answer= (whole*denominator)+ numerator;
+		return answer + "/" + denominator;
 	}
 	//converts an improper fraction into a mixed number
-	public static String toMixedNum(int numerator, int denominator) { 
-		int ;
-		return answer;
-	}
-	//converts a binomial multiplication form into a quadratic equation form
-	public static String foil(int a, int b, int c, int d, String n) {
-		int = ;
-		return answer;
-	}
-//Part Two
-	//determines whether or not one integer is evenly divisible by another
-	public static  isDivisibleBy(int x, int y)
+		public static String toMixedNum(int numerator, int denominator) { 
+			int whole=numerator/denominator;
+			int newnumerator=numerator%denominator;
+			return whole + "_"+ newnumerator + "/" + denominator ;
+		}
+		//converts a binomial multiplication form into a quadratic equation form
+		public static String foil(int a, int b, int c, int d, String x) {
+			int answer1=a*c;
+			int answer2=a*d;
+			int answer3=b*c;
+			int sum=answer2+answer3;
+			int answer4=b*d;
+			return answer1+x+"^2 "+" + "+sum+x+" + "+answer4;
+		}
+	//Part Two
+		//determines whether or not one integer is evenly divisible by another
 		
-	
-}
+			
+		
+	}
 
 
 
