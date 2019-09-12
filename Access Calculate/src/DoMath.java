@@ -7,7 +7,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.min(4,5));
+		System.out.println(Calculate.absvalue(-3));
 	}
 
 }

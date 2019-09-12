@@ -6,7 +6,7 @@
 
  //Part 1
 
-//returns the square of the value passed
+	//returns the square of the value passed
 public class Calculate { 
 	public static int square(int number) {
 		int answer=number*number;  
@@ -63,8 +63,21 @@ public class Calculate {
 		}
 	//Part Two
 		//determines whether or not one integer is evenly divisible by another
-		public static int isDivisibleBy(int a, int b) {
-			
+		public static boolean isDivisibleBy(int a, int b) {
+			if (a%b==0) {
+			return true;
+			} else {
+			return false;
+				
+			}
+		}
+		//returns the absolute value of the number passed
+		public static double absvalue(double a) {
+			if (a<0) {
+			return -a;
+			} else {
+			return a;
+			}
 		}
 		//returns the larger of the values passed
 		public static double max(double x,double y) {
@@ -76,7 +89,7 @@ public class Calculate {
 		}
 		//overload of the max method; returns the larger of the 3 values passed
 		public static double max(double x, double y, double z) {
-			
+			//WOrk oN tHiS laTer
 		}
 		//returns the smaller of the values passed
 		public static int min(int x, int y) {
@@ -85,6 +98,10 @@ public class Calculate {
 			} else {
 				return y;
 			}
+		}
+		//rounds a double correctly to 2 decimal places
+		public static double round2(double a) {
+			if 
 		}
 	}
 
