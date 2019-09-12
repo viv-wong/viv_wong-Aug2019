@@ -57,9 +57,7 @@ public class Calculate {
 		//converts a binomial multiplication form into a quadratic equation form
 		public static String foil(int a, int b, int c, int d, String x) {
 			int answer1=a*c;
-			int answer2=a*d;
-			int answer3=b*c;
-			int sum=answer2+answer3;
+			int sum=(a*d)+(b*c);
 			int answer4=b*d;
 			return answer1+x+"^2 "+" + "+sum+x+" + "+answer4;
 		}
