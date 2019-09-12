@@ -63,9 +63,29 @@ public class Calculate {
 		}
 	//Part Two
 		//determines whether or not one integer is evenly divisible by another
-		
+		public static int isDivisibleBy(int a, int b) {
 			
-		
+		}
+		//returns the larger of the values passed
+		public static double max(double x,double y) {
+			if (x>y) {
+				return x;
+			} else {
+				return y;
+		}
+		}
+		//overload of the max method; returns the larger of the 3 values passed
+		public static double max(double x, double y, double z) {
+			
+		}
+		//returns the smaller of the values passed
+		public static int min(int x, int y) {
+			if (x<y) {
+				return x;
+			} else {
+				return y;
+			}
+		}
 	}
 
 
