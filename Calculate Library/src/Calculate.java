@@ -88,9 +88,10 @@ public class Calculate {
 		}
 		}
 		//overload of the max method; returns the larger of the 3 values passed
-		public static double max(double x, double y, double z) {
-			//WOrk oN tHiS laTer
+		public static double max(double a, double b, double c) {
+			if (a>b) {
 		}
+		
 		//returns the smaller of the values passed
 		public static int min(int x, int y) {
 			if (x<y) {
@@ -100,9 +101,12 @@ public class Calculate {
 			}
 		}
 		//rounds a double correctly to 2 decimal places
-		public static double round2(double a) {
+		public static double round2(double x) {
 			if 
 		}
+		
+			
+		
 	}
 
 
