@@ -45,11 +45,20 @@ public class Calculate {
 	}
 	//converts mixed number into an improper fraction
 	public static String toImproperFrac(int whole, int numerator, int denominator){
+		if (denominator==0) {
+			throw new IllegalArgumentException("cannot have a denominator of zero");
+		}
+		if (whole<0) {
+			throw new IllegalArgumentException("cannot have a zero whole number");
+		}
 		int answer= (whole*denominator)+ numerator;
 		return answer + "/" + denominator;
 	}
 	//converts an improper fraction into a mixed number
 		public static String toMixedNum(int numerator, int denominator) { 
+			if (denominator==0) {
+				throw new IllegalArgumentException("cannot have a denominator of zero");
+			}
 			int whole=numerator/denominator;
 			int newnumerator=numerator%denominator;
 			return whole + "_"+ newnumerator + "/" + denominator ;
@@ -61,14 +70,17 @@ public class Calculate {
 			int answer4=b*d;
 			return answer1+x+"^2 "+" + "+sum+x+" + "+answer4;
 		}
+		
 	//Part Two
 		//determines whether or not one integer is evenly divisible by another
 		public static boolean isDivisibleBy(int a, int b) {
+			if (b==0) {
+				throw new IllegalArgumentException("cannot divide zeros");
+			}
 			if (a%b==0) {
 			return true;
 			} else {
 			return false;
-				
 			}
 		}
 		//returns the absolute value of the number passed
@@ -84,14 +96,19 @@ public class Calculate {
 			if (x>y) {
 				return x;
 			} else {
-				return y;
-		}
+			 return y;
+			}
 		}
 		//overload of the max method; returns the larger of the 3 values passed
 		public static double max(double a, double b, double c) {
-			if (a>b) {
-		}
-		
+			if (a>b && a>c){
+				return a;
+			} else if (b>a && b>c){
+				return b;
+			} else if (c>a && c>b){
+			}	return c;
+			}
+
 		//returns the smaller of the values passed
 		public static int min(int x, int y) {
 			if (x<y) {
@@ -102,12 +119,75 @@ public class Calculate {
 		}
 		//rounds a double correctly to 2 decimal places
 		public static double round2(double x) {
-			if 
-		}
+			double num1=(100*x)+0.5;
+			num1=(int)num1;
+			double answer=num1/100;
+			return answer;
+			}
 		
 			
+	//Part 3
+		//raises a value to a positive integer power
+		public static double exponent(double base, int exponent) {
+			if (exponent<0) {
+				throw new IllegalArgumentException("cannot have negative exponents");
+			}
+			int num=1;
+			while (exponent != 0) {
+				   num *= base;
+				   --exponent;
+				  }
+			return num;
+		}
 		
-	}
+		//returns the factorial of the value passed
+		public static int factorial(int x) {
+			if (x<0) {
+				throw new IllegalArgumentException("cannot factor negatives");
+			}
+			int num=1;
+			for(int i = 1; i <= x; i++){
+	            num = num * i; 
+		}
+			return num;
+		}
+		//determines whether or not an integer is prime
+		public static boolean isPrime(int x) {
+			
+			
+			boolean num1=isDivisibleBy(a,b);
+			
+				}
+			
+		
+		
+		
+		
+		
+		//finds the greatest common factor of two integers
+		public static int gcf(int x, int y) {
+			if (x<0||y<0) {
+				throw new IllegalArgumentException("cannot have negative numbers as an input");
+			}
+			boolean num1=isDivisibleBy(a,b);
+			int a;
+			int b; 
+		}
+		//returns an approximation of the square root of the value passed, rounded to two decimal places
+		public static double sqrt(double x) {
+			
+		}
+	//Part 4
+		//uses the coefficients of a quadratic equation in standard form
+		//and uses the formula to approximate the real roots
+		public static string quadForm(int a, int b, int c) {
+			double dis= discriminant(a,b,c); 
+			double root1;
+			double root2;
+		}
+}
+
+		
 
 
 
