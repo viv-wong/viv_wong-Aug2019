@@ -23,10 +23,10 @@ public class Quadratic {
 				 h=(+b)/2*a; //verify that a neg and neg equals a positive, as does a zero
 			 }
 			double k= a*(h*h)+b*h+c; //subs to find k value
-				description+= "\nVertex: "+"("+h+","+k+")"; //print out value
+				description += "\nVertex: "+"("+h+","+k+")"; //print out value
 				
 		//finding the axis of symmetry -- vertex's h
-				description+= "\nAxis of Symmetry: " + h;	 //print out h
+				description += "\nAxis of Symmetry: " + h;	 //print out h
 	return description;
 	}
 	

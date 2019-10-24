@@ -68,7 +68,7 @@ public class Calculate {
 			int answer1=a*c;	// first multiply n and n to get the first part of the string (raise to the ^2)
 			int sum=(a*d)+(b*c);	//then multiply both n's and #'s together to get second part (#n)
 			int answer4=b*d;			//then multiply #'s together in order to get third part
-			return answer1+x+"^2 "+" + "+sum+x+" + "+answer4; //raise ans1 to ^2, add plus signs between each part.
+			return answer1+x+"^2 "+"+ "+sum+x+" + "+answer4; //raise ans1 to ^2, add plus signs between each part.
 		}
 		
 	//Part Two
@@ -84,7 +84,7 @@ public class Calculate {
 			}
 		}
 		//returns the absolute value of the number passed
-		public static double absvalue(double a) {
+		public static double absValue(double a) {
 			if (a<0) {	//test for negatives
 			return -a;	//use '-' to get a positive from the negative
 			} else {
@@ -93,6 +93,11 @@ public class Calculate {
 		}
 		//returns the larger of the values passed
 		public static double max(double x,double y) {
+			if (x<0) {			//checking for negatives; giving back non-negative numbers
+				return y;
+			} else if(y<0) {
+				return x;
+			}
 			if (x>y) {		//test to see which value is larger
 				return x;
 			} else {		//return the largest value
@@ -101,16 +106,32 @@ public class Calculate {
 		}
 		//overload of the max method; returns the larger of the 3 values passed
 		public static double max(double a, double b, double c) {
+			if (a<0 && b>c ||c<0 && b>a) { 
+			if (b==a) {
+				return b;					
+			} else if (b<0 && a>c|| c<0 && a>b) {
+				if (c==a) {
+				return a;
+			} else if (a<0 && c>b || b<0 && c>a) {
+				if (b==c) {
+				return c;
+		}}}}
+			
 			if (a>b && a>c){		//test if a is greater than both b&c
 				return a;			//if so return a
 			} else if (b>a && b>c){	//if not, test if b is > than a&c
 				return b;			//if so return b
 			} else if (c>a && c>b){ //if not, repeat and test c
-			}	return c;			//if so return c
+			}return c;//if so return c
 			}
-
+			
 		//returns the smaller of the values passed
 		public static int min(int x, int y) {
+			if (x<0) {
+				return x;
+			} else if (y<0){
+				return y;
+			}
 			if (x<y) {		//test to see which value is smaller
 				return x;
 			} else {
@@ -119,6 +140,14 @@ public class Calculate {
 		}
 		//rounds a double correctly to 2 decimal places
 		public static double round2(double x) {
+			if(x<0) { //test for neg values
+				double num1=(100*x)-0.5;	//multiply value by 100 to possible decimal points in the value back
+				num1=(int)num1; 			//minus 0.5 to the product; next cast an int to num1 to make it a whole#
+				double answer=num1/100;		//divide by 100 to get decimal point in the correctly rounded 2 places
+				return answer;	
+			}
+			
+			
 			double num1=(100*x)+0.5;	//multiply value by 100 to possible decimal points in the value back
 			num1=(int)num1; 			//add 0.5 to the product; next cast an int to num1 to make it a whole#
 			double answer=num1/100;		//divide by 100 to get decimal point in the correctly rounded 2 places
@@ -129,9 +158,16 @@ public class Calculate {
 	//Part 3
 		//raises a value to a positive integer power
 		public static double exponent(double base, int exponent) {
+			if (exponent<0 && base<0) {
+				throw new IllegalArgumentException("cannot have a negative exponent and base");
+			}
 			if (exponent<0) {
 				throw new IllegalArgumentException("cannot have negative exponents");
 			}
+			if (base<0) {
+				throw new IllegalArgumentException("cannot have a negative base");
+			}
+			
 			int num=1;					//declare num to equal 1
 			while (exponent != 0) { 	//then test if exp is not equal to 0
 					 --exponent;		//subtract 1 from exp each loop
@@ -147,7 +183,7 @@ public class Calculate {
 			}
 			int num=1;						//declare num to equal 1
 			for(int i = 1; i <= x; i++){	//enter for loop-- int i=1; test if i is <= x
-	            num = num * i; 				//add 1 to i each loop
+	            num = num * i; 				//add 1 
 		}									//once out of loop, multiply num with i to get new num
 			return num;						//return answer
 		}
@@ -170,6 +206,12 @@ public class Calculate {
 			if (x<0||y<0) {
 				throw new IllegalArgumentException("cannot have negative numbers as an input");
 			}
+			if (x==0) {
+				return y;
+			} else if (y==0) {
+				return x;
+			}
+			
 			int num=1;															//declare num to equal 1							
 			for(int i = 1; i <= x && i <= y; i++) {								//test to see if i <=x&y (iterate to lowest # possible) to find the gcd
 				if (isDivisibleBy(x,i) == true && isDivisibleBy(y,i)==true) { 	// add 1 to i each loop; uses the method to check if i is factor of both integers
@@ -182,8 +224,14 @@ public class Calculate {
 		}
 		//returns an approximation of the square root of the value passed, rounded to two decimal places
 		public static double sqrt(double x) {
-			double guess=0.15*x;	//use guess and check to find an educated guess 
-			double answer=0.5*(x/guess + guess); //input into Newton's method to get an answer
+			if (x<0) {
+				throw new IllegalArgumentException("cannot have a negative input");
+			}
+			if (x==1) {
+				return x;
+			}
+			double guess=1.01*x;	//use guess and check to find an educated guess 
+			double answer=0.5*((x/guess) + guess); //input into Newton's method to get an answer
 				double last=round2(answer);		//round the answer to 2 decimal places
 					return last;
 			}
@@ -204,10 +252,12 @@ public class Calculate {
 				} else if(dis>0) { 				//if dis>0 there are 2 real roots
 					 double root3=(-b+sqrt(dis))/(2*a); //subtract and add the discriminant to find the roots
 					 double root2=(-b-sqrt(dis))/(2*a);
-						if (root3>root2) {					//use if/else to put smaller root in front
-							output= root2 + "and" + root3;
+					 double rootFinal3=round2(root3);
+					 double rootFinal2=round2(root2);
+						if (rootFinal3>rootFinal2) {					//use if/else to put smaller root in front
+							output= rootFinal2 + " and " + rootFinal3;
 						} else {
-							output= root3 + " and " + root2;
+							output= rootFinal3 + " and " + rootFinal2;
 						}	
 						}
 			return output; 	//return the output

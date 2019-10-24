@@ -7,7 +7,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.cube(24));
+		System.out.println(Calculate.max(-1193.0, 254.0, -13.0));
 	}
 
 }
