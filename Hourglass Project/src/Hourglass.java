@@ -10,7 +10,7 @@ public class Hourglass {
 		System.out.println("Please enter the size of your desired hourglass: ");
 		int size=userInput.nextInt();
 		
-			System.out.print("|");
+		/*System.out.print("|");
 		for (int quote=1;quote<=size;quote++) {
 			System.out.print ("\"");
 		}
@@ -28,3 +28,25 @@ public class Hourglass {
 		}
 }
 }
+		*/
+		
+		System.out.print("|"); //topline
+		for (int quote=1;quote<=size;quote++) {
+			System.out.print ("\"");
+		}
+			System.out.println("|");//gud
+			
+		for (int line=1;line<=size; line++) { //top of hourglass
+			for (int space=0; space<=line; space++) {
+			System.out.print(" ");
+			System.out.print("\\"); //gud
+		for (int colon=1; colon<=size;colon++) {
+			System.out.print(":");
+		}
+			System.out.println("/");
+			}
+		}
+}
+}
+		
+		
