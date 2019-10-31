@@ -7,7 +7,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.max(-1193.0, 254.0, -13.0));
+		System.out.println(Calculate.max(0.00,-0.01));
 	}
 
 }

@@ -33,9 +33,9 @@ public class Split {
 			String[]outputArray3="I reallyreally likeapples".split("really") ;
 				System.out.println(Arrays.toString(outputArray3));
 			
-				
-		//System.out.println(part1("bread"));
-		//System.out.println(part1)
+			
+		System.out.println(Split.part2("apples pineapples bread lettuce tomato bacon mayo ham bread cheese")); //testing out parts 1&2
+		System.out.println(Split.part1("applespineapplesbreadlettucetomatobaconmayohambreadcheese"));
 		 }
 		
 
@@ -55,12 +55,24 @@ public class Split {
 
 			*/ 
 		 public static String part1(String sandwich) {
-			 String[]outputArray5= sandwich.split("bread") ;
-				System.out.println(Arrays.toString(outputArray5));
-				int start= outputArray5.indexOf("bread");
-				int end= outputArray5.lastIndexOf("bread");
-				return "";
+			 String[]outputArray5= sandwich.split("bread") ; //use split to split the sandwich by "bread"
+			if(outputArray5.length<=1) {					// conditional for non-sandwiches
+				return "Not a sandwich :(";
 			}
+				int location = sandwich.indexOf("bread");	//find the location of "bread" using indexOf
+				if (location>=0) {
+					String remains = sandwich.substring(location+5); //"bread" has 5 letters so add five to the location
+					location = remains.indexOf("bread"); //find the index of the 'remains'/middle of the "bread" statement
+						if (location>=0) {
+							return outputArray5[1]; //return the middle contents of the sandwich
+						} else {
+							return "Not a sandwich :(";	//include not sandwich comments 
+						}
+				} else {
+				return "Not a sandwich :(";
+				}
+		 }	
+
 		
 
 		//Your task pt 2:
@@ -79,9 +91,17 @@ public class Split {
 
 		*/
 
+		 public static String part2(String sandwich) {
+			 String [] outputArray6= sandwich.split(" ");	//use split method to split at the spaces
+			 String noSpace = "";							//create a string for 'noSpace'
+			 for(int i=0; i<outputArray6.length; i++) {	//return middle, disregard the outside contents
+				 noSpace += outputArray6[i]; 			//update noSpace
+			 }
+			 return part1(noSpace);				//recall the method of part1 to get the final middle contents
 		 }
+}
 
 		
-
+		
 
 

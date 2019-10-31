@@ -107,15 +107,15 @@ public class Calculate {
 		//overload of the max method; returns the larger of the 3 values passed
 		public static double max(double a, double b, double c) {
 			if (a<0 && b>c ||c<0 && b>a) { 
-			if (b==a) {
+			//if (b==a) {
 				return b;					
 			} else if (b<0 && a>c|| c<0 && a>b) {
-				if (c==a) {
+				//if (c==a) {
 				return a;
 			} else if (a<0 && c>b || b<0 && c>a) {
-				if (b==c) {
+				//if (b==c) {
 				return c;
-		}}}}
+		}
 			
 			if (a>b && a>c){		//test if a is greater than both b&c
 				return a;			//if so return a
@@ -158,14 +158,17 @@ public class Calculate {
 	//Part 3
 		//raises a value to a positive integer power
 		public static double exponent(double base, int exponent) {
-			if (exponent<0 && base<0) {
-				throw new IllegalArgumentException("cannot have a negative exponent and base");
+			if (exponent==0 && base==0) {
+				throw new IllegalArgumentException("cannot have an exponent and base of zero");
+			}
+			if (exponent==0) {
+				throw new IllegalArgumentException("cannot have an exponent of zero");
 			}
 			if (exponent<0) {
-				throw new IllegalArgumentException("cannot have negative exponents");
+				throw new IllegalArgumentException("cannot have a negative exponent");
 			}
-			if (base<0) {
-				throw new IllegalArgumentException("cannot have a negative base");
+			if (base==0) {
+				throw new IllegalArgumentException("cannot have a base of zero");
 			}
 			
 			int num=1;					//declare num to equal 1
@@ -230,7 +233,7 @@ public class Calculate {
 			if (x==1) {
 				return x;
 			}
-			double guess=1.01*x;	//use guess and check to find an educated guess 
+			double guess=0.0123*x;	//use guess and check to find an educated guess 
 			double answer=0.5*((x/guess) + guess); //input into Newton's method to get an answer
 				double last=round2(answer);		//round the answer to 2 decimal places
 					return last;
@@ -245,13 +248,13 @@ public class Calculate {
 					output= "no real roots";
 					
 				} else if(dis==0) {				//if dis=0 they have the same root 
-					double root1=(-b+sqrt(dis))/(2*a); //find the root 		
+					double root1=(-b+ sqrt(dis))/(2*a); //find the root 		
 					double rootFinal1=round2(root1);	//round the root to 2 decimal places
 						output= rootFinal1 + "";
 						
 				} else if(dis>0) { 				//if dis>0 there are 2 real roots
-					 double root3=(-b+sqrt(dis))/(2*a); //subtract and add the discriminant to find the roots
-					 double root2=(-b-sqrt(dis))/(2*a);
+					 double root3=(-b + sqrt(dis))/(2*a); //subtract and add the discriminant to find the roots
+					 double root2=(-b - sqrt(dis))/(2*a);
 					 double rootFinal3=round2(root3);
 					 double rootFinal2=round2(root2);
 						if (rootFinal3>rootFinal2) {					//use if/else to put smaller root in front
