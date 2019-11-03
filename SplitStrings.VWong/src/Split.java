@@ -1,7 +1,8 @@
 /* Vivian Wong
  * 21 October 2019
  * Period 4
- * 
+ * A project in which we create a method that splits at a specific place and returns what is in the middle 
+ * of that split code
  */
 
 import java.util.Arrays; 

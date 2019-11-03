@@ -7,7 +7,7 @@
 public class DoMath {
 
 	public static void main(String[] args) {
-		System.out.println(Calculate.max(0.00,-0.01));
+		System.out.println(Calculate.sqrt(10));
 	}
 
 }

@@ -3,7 +3,7 @@
 //the result of a collaborative programming exercise in class
 
 import java.util.*;
-//some issues with largest even number; in the process of fixing
+
 public class ProcessingNumbers {
 	public static void main(String[]args) {
 		@SuppressWarnings("resource")
@@ -15,28 +15,43 @@ public class ProcessingNumbers {
 		
 		int max= userInput.nextInt(); //initialize variables 
 		int min= max;
-		int output=max;
+		int maxEven=0;
 		int sum=0;
+		boolean foundEven=false;
 		
-		System.out.println("Please input the rest of your values: "); //ask for the rest of the values
-		for (int i=1; i<times;i++) { //start for loop for the amount of times 
-			int value= userInput.nextInt(); //initialize the value #
-			if(value>max) {  //if/else for determining maximum number
-				max=value;	 	
-			} else if (value<max) { //if/else if for determining minimum number
-				min=value;	
+			if(max%2==0) {		//make conditional to find even numbers
+				maxEven=max;
+				sum=max;
+				foundEven=true;
 			}
-			if(value%2==0) { //if statement to determine even numbers
-				sum+=value; //update 
-			}
-			if(value>output) {//if statement to find largest even number
-				output=value; 
+			
+			//for(int i=1; i<=times-1;i++) {
+				System.out.println("Please input the rest of your values: ");
+				for(int i=1; i <=times-1;i++) {
+				int nextNum=userInput.nextInt();
 				
-			}
-		}
-		System.out.println("The minimum is: "+ min+ "\nThe maximum is: "+ max);
-		System.out.println("\nThe sum of all the even numbers is: "+ sum+"\nThe largest even number is: "+ output);
-	}		//return outputs
-}
+				if(nextNum>max) { //finds the max
+					max=nextNum;
+				}
+				if(nextNum<min) {	//finds the minimum
+					min=nextNum;
+				}
+				
+				if(nextNum%2==0) {		//finds the maximum even number
+					if(nextNum>maxEven) 
+					maxEven=nextNum;
+					foundEven=true;
+			}	
+				if(nextNum%2==0) {	//find sum of all even numbers
+					sum+=nextNum;
+					foundEven=true;
+				}}
+				userInput.close(); //closes scanner
 	
+		if(foundEven==true) {
+			System.out.println("The minimum is: "+ min+ "\nThe maximum is: "+ max);
+			System.out.println("\nThe sum of all the even numbers is: "+ sum+"\nThe largest even number is: "+ maxEven);
+		}
+}}
+			
 

@@ -106,22 +106,19 @@ public class Calculate {
 		}
 		//overload of the max method; returns the larger of the 3 values passed
 		public static double max(double a, double b, double c) {
-			if (a<0 && b>c ||c<0 && b>a) { 
-			//if (b==a) {
-				return b;					
-			} else if (b<0 && a>c|| c<0 && a>b) {
-				//if (c==a) {
+			if (a<0 && b>=c ||c<0 && b>=a) { //tests for a negative a,b, or c and if it is greater than > or = to... 
+				return b;						//...the remaining variables
+			} else if (b<0 && a>=c|| c<0 && a>=b) { 
 				return a;
-			} else if (a<0 && c>b || b<0 && c>a) {
-				//if (b==c) {
+			} else if (a<0 && c>=b || b<0 && c>=a) {
 				return c;
 		}
 			
-			if (a>b && a>c){		//test if a is greater than both b&c
+			if (a>=b && a>=c){		//test if a is greater than or = to both b&c
 				return a;			//if so return a
-			} else if (b>a && b>c){	//if not, test if b is > than a&c
+			} else if (b>=a && b>=c){	//if not, test if b is > or = to than a&c
 				return b;			//if so return b
-			} else if (c>a && c>b){ //if not, repeat and test c
+			} else if (c>=a && c>=b){ //if not, repeat and test c
 			}return c;//if so return c
 			}
 			
@@ -158,17 +155,14 @@ public class Calculate {
 	//Part 3
 		//raises a value to a positive integer power
 		public static double exponent(double base, int exponent) {
-			if (exponent==0 && base==0) {
-				throw new IllegalArgumentException("cannot have an exponent and base of zero");
+			if (base==0) {		//throw exception if base=0
+				throw new IllegalArgumentException("cannot have a base of 0");
 			}
-			if (exponent==0) {
-				throw new IllegalArgumentException("cannot have an exponent of zero");
+			if (exponent==0) {	//throw exception if exp =0
+				throw new IllegalArgumentException("cannot have an exponent of 0");
 			}
-			if (exponent<0) {
+			if (exponent<0) {	//throw exception for negative exponents
 				throw new IllegalArgumentException("cannot have a negative exponent");
-			}
-			if (base==0) {
-				throw new IllegalArgumentException("cannot have a base of zero");
 			}
 			
 			int num=1;					//declare num to equal 1
@@ -227,17 +221,29 @@ public class Calculate {
 		}
 		//returns an approximation of the square root of the value passed, rounded to two decimal places
 		public static double sqrt(double x) {
-			if (x<0) {
+			if (x<0) {		//throw exception for negative input
 				throw new IllegalArgumentException("cannot have a negative input");
 			}
-			if (x==1) {
+			if (x==1) {		//conditional if x is 1
 				return x;
 			}
-			double guess=0.0123*x;	//use guess and check to find an educated guess 
+			double sqrt = x / 2;	//divide number by 2
+			double guess;			//initialize a best guess
+			do {					//create a do/while loop that repeatedly loops until guess-sqrt= 0  
+				guess = sqrt;				//set guess=sqrt
+				sqrt = (guess + (x / guess)) / 2;		//set sqrt= to newtons formula with guess #
+				} 
+			while ((guess - sqrt) != 0);	//while conditional that will exit the loop once guess-sqrt= 0
+			double sqrtFinal=round2(sqrt); //round answer to 2 decimal places
+			return sqrtFinal;	//return final answer
+		}
+			
+		//previous code
+			/*double guess=0.0123*x;	//use guess and check to find an educated guess 
 			double answer=0.5*((x/guess) + guess); //input into Newton's method to get an answer
 				double last=round2(answer);		//round the answer to 2 decimal places
 					return last;
-			}
+			}*/
 	//Part 4
 		//uses the coefficients of a quadratic equation in standard form
 		//and uses the formula to approximate the real roots
