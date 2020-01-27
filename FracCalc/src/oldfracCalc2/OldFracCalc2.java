@@ -6,11 +6,11 @@
 
 
 
-package fracCalc;
+package oldfracCalc2;
 
 import java.util.*;
 
-public class FracCalc {
+public class OldFracCalc2 {
 	
     public static void main(String[] args) {
     	Scanner userInput = new Scanner(System.in);	//create a scanner to get user input
@@ -87,7 +87,6 @@ public class FracCalc {
     	}		
     } 
 
-    
     public static int findNumerator(String fraction) {	//method to find the num
     	if(fraction.contains("_")) {	//check if the frac has an _
     		int numerator= Integer.parseInt(fraction.substring(fraction.indexOf("_") +1, fraction.indexOf("/")));	//if so use substring from _ to the /; convert to int ant make variable for numerator

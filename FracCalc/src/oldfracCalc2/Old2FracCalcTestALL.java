@@ -1,8 +1,10 @@
-package fracCalc;
+package oldfracCalc2;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+
+import fracCalc.FracCalcTestHelper;
 
 // To run all tests, just click somewhere inside this file, and click the Play button
 // The results will appear categorized by checkpoint.  Your code should pass
@@ -10,13 +12,13 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    FracCalcTestCheckpoint1.class,
-    FracCalcTestCheckpoint2.class,
-    FracCalcTestCheckpoint3.class,
-    FracCalcTestFinal.class,
+    Old2FracCalcTestCheckpoint1.class,
+    Old2FracCalcTestCheckpoint2.class,
+    Old2FracCalcTestCheckpoint3.class,
+    Old2FracCalcTestFinal.class,
 })
 
-public class FracCalcTestALL
+public class Old2FracCalcTestALL
 {
     public static void assertForEarlyCheckpoints(String answer1, String answer2, String answer3, String candidate)
     {
