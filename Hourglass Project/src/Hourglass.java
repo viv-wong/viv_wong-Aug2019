@@ -49,6 +49,7 @@ public class Hourglass {
 			
 			} // end right blanks loop
 			}
+		
 			} // end bottomHalf
 			
 
